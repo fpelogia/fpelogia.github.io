@@ -20,7 +20,7 @@ let d=0;
 
 function setup() {
   frameRate(fps);
-  createCanvas(500,1000);
+  createCanvas(300,600);
   background('#497019');
   plSh = new ship(1);
   // aiship = new ship(0);  
