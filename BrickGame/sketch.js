@@ -25,7 +25,7 @@ function setup() {
   plSh = new ship(1);
   // aiship = new ship(0);  
   aiship.push(new ship(0));
-  img = loadImage("Images/brick_bg.png");
+  img = loadImage("/../Images/brick_bg.png");
   
 }
 
