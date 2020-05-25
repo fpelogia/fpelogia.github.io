@@ -20,12 +20,12 @@ let d=0;
 
 function setup() {
   frameRate(fps);
-  createCanvas(300,600);
+  createCanvas(500,1000);
   background('#497019');
   plSh = new ship(1);
   // aiship = new ship(0);  
   aiship.push(new ship(0));
-  img = loadImage("https://i.imgur.com/rxe4Vnn.png");
+  img = loadImage("Images/brick_bg.png");
   
 }
 
