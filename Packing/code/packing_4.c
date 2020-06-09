@@ -274,7 +274,7 @@ void myevalhlp(int n, double *x, int m, double *lambda, double scalef,
 /* ******************************************************************
    ****************************************************************** */
 
-int main() {
+int main(int argc, char const *argv[]) {
   _Bool  checkder;
   int    hnnzmax,hnnzmax1,hnnzmax2,hnnzmax3,i,jcnnzmax,inform,m,n,nvparam,ncomp;
   double cnorm,efacc,efstin,eoacc,eostin,epsfeas,epsopt,f,nlpsupn,snorm;
@@ -282,9 +282,9 @@ int main() {
   char   *specfnm, *outputfnm, **vparam;
   _Bool  coded[11],*equatn,*linear;
   double *l,*lambda,*u,*x;
-  
+
   n = 8;
-  m = 1;
+  m = 6;
   
   /* Memory allocation */
   x      = (double *) malloc(n * sizeof(double));
@@ -304,30 +304,36 @@ int main() {
 
   /* Initial point */
   //for(i = 0; i < n; i++) x[i] = 0.0;
-  x[0] = 1.0;
-  x[1] = 1.0;
 
-  x[2] = 3.0;
-  x[3] = 3.0;
+  if(argc < 1){
+    printf( "\nC ERROR IN MAIN PROGRAM: Not enough input data.\n" );
+  }else{
+    x[0] = atof(argv[3]);
+    x[1] = atof(argv[4]);
 
-  x[4] = 5.0;
-  x[5] = 5.5;
+    x[2] = atof(argv[5]);
+    x[3] = atof(argv[6]);
 
-  x[6] = 7.0;
-  x[7] = 4.4;
+    x[4] = atof(argv[7]);
+    x[5] = atof(argv[8]);
+
+    x[6] = atof(argv[9]);
+    x[7] = atof(argv[10]);
 
 
 
+    /* Lower and upper bounds */
+    l[0] = 1.0; u[0] = atof(argv[1]) - 1.0;
+    l[1] = 1.0; u[1] = atof(argv[2]) - 1.0;
+    l[2] = 1.0; u[2] = atof(argv[1]) - 1.0;
+    l[3] = 1.0; u[3] = atof(argv[2]) - 1.0;
+    l[4] = 1.0; u[4] = atof(argv[1]) - 1.0;
+    l[5] = 1.0; u[5] = atof(argv[2]) - 1.0;
+    l[6] = 1.0; u[6] = atof(argv[1]) - 1.0;
+    l[7] = 1.0; u[7] = atof(argv[2]) - 1.0;
+  }
 
-  /* Lower and upper bounds */
-  l[0] = 1.0; u[0] = 7.0;
-  l[1] = 1.0; u[1] = 7.0;
-  l[2] = 1.0; u[2] = 7.0;
-  l[3] = 1.0; u[3] = 7.0;
-  l[4] = 1.0; u[4] = 7.0;
-  l[5] = 1.0; u[5] = 7.0;
-  l[6] = 1.0; u[6] = 7.0;
-  l[7] = 1.0; u[7] = 7.0;
+
 
 
   /* For each constraint i, set equatn[i] = 1. if it is an equality

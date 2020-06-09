@@ -9,15 +9,15 @@
   </head>
   <body>
   	<p id="txt_dim">Dimensões da sala:</p>
-  	<br/>
+
     <input type="text" id="xtxt">
     <br/>
     <br/>
     <input type="text" id="ytxt">
     
     <p id="txt_centers">Digite a posição inicial dos alunos</p>
-    <br/>
-    <br/>
+
+
     <input type="text" id="x1"> <input type="text" id="y1">
     <br/>
     <br/>
@@ -29,10 +29,7 @@
     <br/>
     <input type="text" id="x4"> <input type="text" id="y4">
     <br/>
-    <br/><br/>
-    <p><button id="btn">Enviar</button> </p>
-    <br/>
-
+    
     
 
 
@@ -40,11 +37,16 @@
     <script src="p5.js"></script>
     <script src="sketch.js"></script>
 
+    <br/>
+    	<p><button id="btn">1) Enviar</button> </p>
+
     <iframe style="display:none;" name="target"></iframe>
     <a href="http://localhost:8080/magic.php" target="target">
-    	<input id = "sh_caller" type="submit" value="Otimizar">
-
+    	<p><button id = "phpbtn" >2) Otimizar</button> </p>
     </a>
+
+   	<p><button id = "load_opt" >3) Carregar resultado</button> </p>
+   	<p><button id = "show_opt" >4) Exibir resultado</button> </p>
 
 
   </body>

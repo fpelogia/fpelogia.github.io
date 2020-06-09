@@ -20,6 +20,23 @@ body {
 }
 
 p{
-	font-size: 24pt;
+	font-size: 16pt;
 	color: white;
+}
+#btn{
+  font-size: 16pt;
+  background: white;
+}
+
+#phpbtn{
+  font-size: 16pt;
+  background: white;
+}
+#load_opt{
+  font-size: 16pt;
+  background: white;
+}
+#show_opt{
+  font-size: 16pt;
+  background: white;
 }

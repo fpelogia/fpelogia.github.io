@@ -28,20 +28,41 @@ let all_ok = false;
 let txt;
 let sh_caller;
 let opt_view_btn;
-let sh_txt
+let sh_generator;
 
+let sh_txt = "";
 
-function preload(){
-	sh_txt = loadStrings("http://localhost:8080/opt.sh")
+function generate_sh(){
+	sh_txt = "#!/bin/bash\ngcc -O3 code/packing_4.c -L/home/fpelogia/algencan/lib -lalgencan -lgfortran -lm   -o algencan\n./algencan "
+	sh_txt = sh_txt + x_room/100.0 + " " + y_room/100.0;
+	sh_txt = sh_txt + " " + inx1.value();
+	sh_txt = sh_txt + " " + iny1.value();
+	sh_txt = sh_txt + " " + inx2.value();
+	sh_txt = sh_txt + " " + iny2.value();
+	sh_txt = sh_txt + " " + inx3.value();
+	sh_txt = sh_txt + " " + iny3.value();
+	sh_txt = sh_txt + " " + inx4.value();
+	sh_txt = sh_txt + " " + iny4.value();
+	
+	saveStrings(split(sh_txt, "\n"), 'opt', 'sh', false)
+
+	
 }
 
 
 
+
+
 function continue_creating(){
+
+	
+
 	
 	x_room = 100*Number(x_catch.value());
 
 	y_room = 100*Number(y_catch.value());
+
+	generate_sh();
 
 	x_catch.remove();
 	y_catch.remove();
@@ -68,6 +89,8 @@ function continue_creating(){
 
 	x4 = 100*Number(inx4.value());
 	y4 = height - 100*Number(iny4.value());
+
+
 	
 
 	background(255)
@@ -79,21 +102,25 @@ function continue_creating(){
 	let txt_c = select('#txt_centers');
 	txt_c.remove();
 
-	for (let i = 4; i<=11; i++){
-		x_opt[i-4] = Number(txt[i].split(' ')[8].substring(0,18));
-	}
-	//print(x_opt)
 
-	opt_view_btn = createButton('Ver posições otimizadas')
+	opt_load_btn = select('#load_opt')
+	opt_load_btn.mousePressed(loadOpt)
+
+
+	opt_view_btn = select('#show_opt')
 	opt_view_btn.mousePressed(opt_view)
-	sh_caller.remove()
+
+
 
 	all_ok = true;
 	print(sh_txt)
 }
+
 function loadOpt(){
 	txt = loadStrings("http://localhost:8080/SOLUTION.TXT")
+	print('Posições otimizadas carregadas com sucesso.')
 }
+
 
 
 function setup() {
@@ -111,10 +138,7 @@ function setup() {
 
 
 	go_on = select('#btn');
-	go_on.style('font-size','32pt')
 	go_on.mousePressed(continue_creating)
-	sh_caller = select('#sh_caller')
-	sh_caller.mouseReleased(loadOpt)
 	
 
 }
@@ -182,6 +206,9 @@ function draw() {
 //}
 
 function opt_view(){
+	for (let i = 4; i<=11; i++){
+		x_opt[i-4] = Number(txt[i].split(' ')[8].substring(0,18));
+	}
   	background(255)
   	x1 = 100*x_opt[0]
   	y1 = 100*x_opt[1]
