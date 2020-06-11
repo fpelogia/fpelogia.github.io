@@ -3,7 +3,7 @@
 #include <math.h>
 #include <string.h>
 
-// gcc -O3 packing_4.c -L/home/fpelogia/algencan/lib -lalgencan -lgfortran -lm -o algencan
+// gcc -O3 other.c -L/home/fpelogia/algencan/lib -lalgencan -lgfortran -lm -o algencan
 
 
 
@@ -16,7 +16,8 @@ void c_algencan(void *myevalf, void *myevalg, void *myevalh, void *myevalc,
   char *specfnm, int nvparam,char **vparam, int n, double *x,
   double *l, double *u, int m, double *lambda, _Bool *equatn,
   _Bool *linear, _Bool *coded, _Bool checkder, double *f,
-  double *cnorm, double *snorm, double *nlpsupn,int *inform); 
+  double *cnorm, double *snorm, double *nlpsupn,int *inform);
+
 double dist(double* x, int x1, int y1, int x2, int y2 ){
   return pow(pow(x[x1] - x[x2],2) + pow(x[y1] - x[y2],2) , 0.5);
 
@@ -26,7 +27,7 @@ double dist(double* x, int x1, int y1, int x2, int y2 ){
    ****************************************************************** */
 
 void myevalf(int n, double *x, double *f, int *flag) {
-   *f = -x[8];
+   *f = 0;
    *flag = 0;
 }
 
@@ -56,17 +57,17 @@ void myevalc(int n, double *x, int ind, double *c, int *flag) {
 
    *flag = 0;
    if ( ind == 0 ){
-   		*c = x[8] - (pow(x[0] - x[2],2) + pow(x[1] - x[3],2));
+      *c = x[8] - (pow(x[0] - x[2],2) + pow(x[1] - x[3],2));
    }else if(ind ==1){
-   		*c = x[8] - (pow(x[0] - x[4],2) + pow(x[1] - x[5],2));
+      *c = x[8] - (pow(x[0] - x[4],2) + pow(x[1] - x[5],2));
    }else if(ind ==2){
-   		*c = x[8] - (pow(x[0] - x[6],2) + pow(x[1] - x[7],2));
+      *c = x[8] - (pow(x[0] - x[6],2) + pow(x[1] - x[7],2));
    }else if(ind ==3){
-   		*c = x[8] - (pow(x[2] - x[4],2) + pow(x[3] - x[5],2));
+      *c = x[8] - (pow(x[2] - x[4],2) + pow(x[3] - x[5],2));
    }else if(ind ==4){
-   		*c = x[8] - (pow(x[2] - x[6],2) + pow(x[3] - x[7],2));
+      *c = x[8] - (pow(x[2] - x[6],2) + pow(x[3] - x[7],2));
    }else if(ind ==5){
-   		*c = x[8] - (pow(x[4] - x[6],2) + pow(x[5] - x[7],2));
+      *c = x[8] - (pow(x[4] - x[6],2) + pow(x[5] - x[7],2));
    }
    else
      *flag = -1;
@@ -221,7 +222,7 @@ void myevaljac(int n, double *x, int ind, int *jcvar, double *jcval,
    //   jcval[4] = 1.0 - (pow(x[4] - x[6],2) + pow(x[5] - x[7],2));
 
    // }else{
-   // 		*flag = -1;
+   //     *flag = -1;
    // }
 }
 
@@ -291,7 +292,7 @@ int main(int argc, char const *argv[]) {
   _Bool  coded[11],*equatn,*linear;
   double *l,*lambda,*u,*x;
 
-  n = 9;
+  n = 8;
   m = 6;
   
   /* Memory allocation */
@@ -328,8 +329,6 @@ int main(int argc, char const *argv[]) {
     x[6] = atof(argv[9]);
     x[7] = atof(argv[10]);
 
-    x[8] = 2.0;
-
 
 
     /* Lower and upper bounds */
@@ -341,7 +340,6 @@ int main(int argc, char const *argv[]) {
     l[5] = 1.0; u[5] = atof(argv[2]) - 1.0;
     l[6] = 1.0; u[6] = atof(argv[1]) - 1.0;
     l[7] = 1.0; u[7] = atof(argv[2]) - 1.0;
-    l[8] = 2.0; u[8] = 1e6;
   }
 
 
@@ -408,7 +406,7 @@ int main(int argc, char const *argv[]) {
   outputfnm = "algencan.out";
   specfnm   = "";
 
-  nvparam = 1;
+  nvparam = 2;
   
   /* Allocates VPARAM array */
   vparam = ( char ** ) malloc( nvparam * sizeof( char * ) );
@@ -416,7 +414,7 @@ int main(int argc, char const *argv[]) {
   /* Set algencan parameters */
   //vparam[0] = "ITERATIONS-OUTPUT-DETAIL 10";  
   vparam[0] = "SOLUTION-FILENAME SOLUTION.TXT";
-  //vparam[1] = "IGNORE-OBJECTIVE-FUNCTION 1";
+  vparam[1] = "IGNORE-OBJECTIVE-FUNCTION";
 
   /* Optimize */
   c_algencan(&myevalf,&myevalg,&myevalh,&myevalc,&myevaljac,&myevalhc,&myevalfc,

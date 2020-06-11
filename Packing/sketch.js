@@ -119,6 +119,7 @@ function continue_creating(){
 function loadOpt(){
 	txt = loadStrings("http://localhost:8080/SOLUTION.TXT")
 	print('Posições otimizadas carregadas com sucesso.')
+	print(txt)
 }
 
 
