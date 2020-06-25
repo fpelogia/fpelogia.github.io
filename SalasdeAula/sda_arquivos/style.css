@@ -1,0 +1,380 @@
+﻿/*
+Theme Name: New Emancipa
+Theme URI: https://redeemancipa.org.br/
+Description: Tema desenvolvido para o site da Rede Emancipa.
+Author: Tiago Madeira <madeira@ime.usp.br> and Nathan Benedetto Proenca <nathan@vieiraproenca.com>
+Version: 2.0
+ */
+@font-face {
+	font-family: "Journal";
+	src: url('./fonts/journal.ttf');
+}
+@font-face {
+	font-family: "Lato";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Lato Regular"), local("Lato-Regular"), url("https://themes.googleusercontent.com/static/fonts/lato/v7/9k-RPmcnxYEPm8CNFsH2gg.woff") format("woff");
+}
+@font-face {
+	font-family: "Open Sans";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Open Sans Light"), local("OpenSans-Light"), url("https://themes.googleusercontent.com/static/fonts/opensans/v8/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff") format("woff");
+}
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+html {
+	font:11px Verdana, Tahoma, sans-serif;
+	min-width:1080px;
+}
+
+p {
+	/*	font:14px "Open Sans", Lato, Verdana, Tahoma, sans-serif; */
+	font:14px Lato, Verdana, Tahoma, sans-serif;
+	margin-bottom:1.7em;
+}
+
+a {
+	text-decoration:none;
+	color:#004900;
+}
+
+ul {
+	margin-left:45px;
+}
+
+body {
+	padding:0;
+	background:#DDD;
+}
+
+img {
+	border:0;
+	vertical-align:bottom;
+	max-width: 100%;
+}
+
+#campaign
+{
+	text-align: center;
+	background: #FFF none repeat scroll 0% 0%;
+	color: #004900;
+	padding: 7px;
+	z-index: 777;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	/* display: none; */
+}
+
+#header{
+	background:#004900;
+	font-size:16px;
+	color:#FFF;
+	height:120px;
+	top:0px;
+	width:100%;
+	position:fixed;
+	overflow:auto;
+	z-index:42;
+	min-width:1200px;
+	padding-top:15px;
+}
+
+#logo {
+	max-width:250px;
+	margin-left:7.5%;
+	margin-top:4px;
+	float:left;
+}
+
+#header .menu {
+	float:left;
+	margin:auto;
+	min-width:600px;
+	width:50%;
+	font-size:16px;
+	padding-top:80px;
+}
+
+#header .menu a {
+	color:#FFF;
+}
+
+#logo {
+	float:left;
+}
+.menu {
+	text-align:center;
+	font-size:14px;
+}
+
+.menu a {
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.menu ul, #sidepane ul {
+	list-style-type:none;
+}
+
+#sidepane ul li {
+	margin:5px;
+}
+
+.menu ul li {
+	display:inline;
+	margin-right:15px;
+}
+
+.search {
+	width:20%;
+	min-width:160px;
+	padding-top:70px;
+	float:right;
+}
+
+.search input[type="text"] {
+	background:#C6D7C7;
+	color:#000;
+	border:none;
+	text-align:center;
+	width:160px;
+	height:30px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+
+#main{
+	position:absolute;
+	left:7.5%;
+	min-width:800px;
+	padding-top:145px;
+	margin:auto;
+	width:85%;
+	background:#FFF;
+	color:#000;
+}
+
+#sidepane {
+	width:35%;
+	padding-top:15px;
+	padding-right:20px;
+	float:right;
+}
+
+.blockContent {
+	min-width:50%;
+	padding:15px;
+	overflow:auto;
+}
+
+.blocks {
+	padding-top:30px;
+	width:92%;
+	margin:auto;
+	overflow:hidden;
+}
+.home_block{
+	width:50%;
+	height:250px;
+	padding:10px;
+	margin-top:5px;
+	float:left;
+}
+.banner h2 {
+	background:url("./images/hl.png") repeat;
+}
+
+#quote{
+	color:#000;
+	font-family:'Journal','Schoolbell','Indie Flowers', serif;
+	font-size:32px;
+	clear:both;
+	padding:30px 5px;
+	min-height:100px;
+	text-align:right;
+}
+
+#quote p {
+	font-size:16px;
+}
+
+#home-pres{
+	margin:auto;
+	max-width:642px;
+	background:white;
+	min-height:500px;
+}
+
+/* #pres-box {
+margin:auto;
+width:90%;
+background:black;
+max-width:660px;
+padding:30px;
+overflow:auto;
+} */
+
+#pres-0{
+	height:300px;
+	background-size:auto 100% !important;
+}
+#pres-1, #pres-2 {
+	border-top:2px solid white;
+	float:left;
+	height:300px;
+	width:50%;
+}
+
+#pres-1 {
+	border-right:2px solid white;
+}
+
+.pres-title {
+	position:relative;
+	top:200px;
+	width:100%;
+	min-height:60px;
+	font-size:16px;
+	text-align:center;
+	padding:5px 10%;
+	background:url("./images/hl.png") repeat;
+	color:#FFF;
+}
+
+.pres-date {
+	text-align:center;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:16px;
+	color:#FFF;
+	background:#004900;
+	width:45px;
+	min-height:40px;
+	float:left;
+	padding:3px;
+}
+
+.post {
+	margin:10px;
+	padding-left:10px;
+}
+
+.post:hover {
+	border-left:5px solid #004900;
+	padding-left:5px;
+}
+
+
+.content p {
+	margin-top:2px;
+	margin:15px 0px;
+}
+
+.calendar {
+	margin:5px;
+	padding:2px;
+	display:block;
+	text-align:center;
+}
+
+.textContent {
+	font-size:14px;
+}
+
+.textContent p {
+	margin-top:10px;
+}
+
+#footer {
+	padding-bottom:200px;
+}
+
+#wpadminbar {
+	display:none;
+}
+
+.cursinhos {
+	margin:auto;
+}
+
+.cursinhos #title {
+	padding:5px;
+	color:black;
+	width:inherit;
+	height:inherit;
+	background:none;
+	text-align:left;
+	padding:inherit;
+}
+
+.cursinhos h2 {
+	background:#004900;
+	padding-top:5px;
+	text-align:center;
+	color:white;
+	width:35px;
+	height:30px;
+}
+
+.cursList {
+	width:200px;
+	font-size:13px;
+	font-weight:bold;
+	min-height:35px;
+	overflow:auto;
+}
+
+.content ul {
+	margin-left:15px;
+}
+
+.cursList span {
+	display:block;
+	/*	float:right; */
+	font-weight:normal;
+}
+
+#like-us {
+	width:95%;
+	padding:5px;
+	background:#AAAAFF;
+	margin:auto;
+}
+.banner {
+	width:75%;
+	color:#FFF;
+	padding-top:120px;
+	margin-top:10px;
+	text-align:right;
+	background-size:100% auto !important;
+}
+#contador {
+  text-align: center;
+  background: none repeat scroll 0% 0% #666;
+  padding: 7px;
+  box-shadow: 0px 0px 4px rgb(68, 68, 68);
+  z-index: 777;
+}
+
+#contador a {
+  font: bold 20px "Trebuchet MS",sans-serif;
+  text-decoration: none;
+  position: relative;
+  width: 960px;
+  margin: 0px auto;
+  color: #a0a0a0;
+}
+
+#contador strong {
+  color: #fff;
+  font: bold 20px "Trebuchet MS",sans-serif;
+}
+#contador a:hover {
+  text-decoration: underline;
+}
