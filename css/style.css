@@ -13,9 +13,52 @@
 }
 
 body{
-    width:70%;
+    width:75%;
     margin:auto;
+    background:#DFDFDF;
     /*text-align:center;*/
+}
+h2{
+    margin-left:20%;
+    color: #275F9A;
+}
+h3{
+    margin-left:20%;
+    color: #275F9A;
+}
+.nome_foto{
+    width: 40%;
+    margin-left: 30%;
+}
+.exp_item{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 15px;
+    border-radius:10px;
+}
+.exp_item:hover{
+    border: 3px solid #275F9A;
+}
+.formacao{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 15px;
+    border-radius:10px;
+}
+.social_link{
+    display: inline;
+    width:100%;
+    color: #275F9A;
+    font-size: 48pt;
+}
+ul.link_bar{
+    width:30%;
+    margin-left:35%;
+}
+ul.link_bar li {
+    display: inline;
+    list-style-type: none;
+    margin: 2px;
 }
 header{
     text-align:center;
