@@ -11,26 +11,63 @@
 </head>
 <body>
     <img class="nome_foto" src="./Images/nome_foto.png" >
-    <section>
-        <h2> Experiência </h2>
-        <a href="#">
-            <img class="exp_item" src="./Images/cnpq.png" >
-        </a>
-        <a href="http://salaplanejada.unifesp.br/">
-            <img class="exp_item" src="./Images/salaplan.png" >
-        </a>
-        <a href="http://sabersus.com.br/">
-            <img class="exp_item" src="./Images/sabersus.png" >
-        </a>
-        <a href="https://bv.fapesp.br/en/bolsas/187984/optimization-methods-applied-to-neural-networks-for-anomaly-detection-in-credit-card-transactions/">
-            <img class="exp_item" src="./Images/fapesp.png" >
-        </a>
-        </img>
+    <div class="flex-container">
+        <!--===================== Experiência ==========================-->
+        <div class="flex-left">
+            <h2> Experiência </h2>
+            <a href="#">
+                <img class="exp_item" src="./Images/cnpq.png" >
+            </a>
+            <a href="http://salaplanejada.unifesp.br/">
+                <img class="exp_item" src="./Images/salaplan.png" >
+            </a>
+            <a href="http://sabersus.com.br/">
+                <img class="exp_item" src="./Images/sabersus.png" >
+            </a>
+            <a href="https://bv.fapesp.br/en/bolsas/187984/optimization-methods-applied-to-neural-networks-for-anomaly-detection-in-credit-card-transactions/">
+                <img class="exp_item" src="./Images/fapesp.png" >
+            </a>
 
-        <img class="formacao" src="./Images/formacao.png" >
-        <br>
-        <a href="./Documents/Curriculo.pdf"  target="_blank"><i class="social_link fas fa-download" style="display:inline; margin-left:45%"></i></a>
-    </section>
+            <img class="formacao" src="./Images/formacao.png" >
+            <br>
+            <a href="./Documents/Curriculo.pdf"  target="_blank"><i class="social_link fas fa-download" style="display:inline; margin-left:45%"></i></a>
+        </div>
+        <!--===================== Fim Experiência ======================= -->
+        <!--==================== Projetos Pessoais ======================-->
+        <div class="flex-right">
+            <h2> Projetos Pessoais </h2>
+
+            <div class="exp_item">
+                <img class="item_img" src="./Images/wb.png" >
+                <button type="submit" onclick="window.open('https://github.com/fpelogia/whiteboard');" class="item_btn">Github</button>
+                <button type="submit" onclick="window.open('https://fpelogia.github.io/whiteboard/public');" class="item_btn">Web-App (single user)</button>
+                <button type="submit" onclick="window.open('https://latex-whiteboard.herokuapp.com');" class="item_btn">Web-App</button>
+            </div>
+
+            <div class="exp_item">
+                <img class="item_img"src="./Images/pca.png" >
+                <button type="submit" onclick="window.open('https://github.com/carmesim/pacman-clone-automata');" class="item_btn">Github</button>
+                <button type="submit" onclick="window.open('https://carmesim.github.io/pacman-clone-automata/');" class="item_btn">Web-App</button>
+                <p>Autores: Eu, <a href="https://github.com/GustavoBarbaro">GustavoBarbaro</a>, e  <a href="https://github.com/vrmiguel">vrmiguel</a>
+            </div>
+
+            <div class="exp_item">
+                <img class="item_img"src="./Images/snp.png" >
+                <button type="submit" onclick="window.open('https://github.com/fvcalderan/SelecNatProj');" class="item_btn">Github</button>
+                <button type="submit" onclick="window.open('https://fpelogia.github.io/SelecNatProj_Web/');" class="item_btn">Web-App</button>
+                <p>Autores: Eu, <a href="https://github.com/fvcalderan">fvcalderan</a>, e  <a href="https://github.com/Gabriel-Mugge">Gabriel-Mugge</a>
+            </div>
+            <div class="exp_item">
+                <img class="item_img"src="./Images/ict_focus.png" >
+                <button type="submit" onclick="window.open('https://youtu.be/KwYDhOxZvY0');" class="item_btn">Vídeo</button>
+                <button type="submit" onclick="window.open('./Documents/ict_focus.pdf');" class="item_btn">Screenshots</button>
+                <p>Autores: Eu, <a href="https://github.com/fvcalderan">fvcalderan</a>, e  <a href="https://github.com/Gabriel-Mugge">Gabriel-Mugge</a>
+            </div>
+
+            <br>
+        </div>
+        <!--================ Fim Projetos Pessoais ======================-->
+    </div>
     <hr>
     <section >
         <ul class='link_bar'>
